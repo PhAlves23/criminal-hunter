@@ -35,3 +35,31 @@ body {
 .textarea-style {
   @apply w-full p-5 bg-neutral-700 rounded-lg text-white placeholder:text-neutral-300;
 }
+
+input[type="date"] {
+  position: relative;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator,
+input[type="datetime-local"]::-webkit-calendar-picker-indicator {
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  z-index: 1;
+  appearance: none;
+}
+
+input[type="date"]:after,
+input[type="datetime-local"]:after {
+  content: "";
+  position: absolute;
+  right: 10px;
+  width: 24px;
+  height: 24px;
+  filter: invert(1);
+  pointer-events: none;
+}

@@ -2,6 +2,7 @@
 import { Button } from "@/components/button";
 import { InputDefault } from "@/components/inputs/input_default";
 import Image from "next/image";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { FiChevronLeft } from "react-icons/fi";
@@ -57,8 +58,12 @@ export default function ChangePassword() {
           />
         </div>
         <div className="flex flex-col gap-3">
-          <Button text="Salvar" variant="primary" />
-          <Button text="Cancelar" variant="secondary" />
+          <Link href="/profile">
+            <Button text="Salvar" variant="primary" />
+          </Link>
+          <Link href="/profile">
+            <Button text="Cancelar" variant="secondary" />
+          </Link>
         </div>
       </main>
     </>
