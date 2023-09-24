@@ -3,12 +3,14 @@ import { Dispatch, SetStateAction, useEffect, useState } from "react";
 interface InputDefaultProps
   extends React.InputHTMLAttributes<HTMLInputElement> {
   setSelectedGenderValue?: Dispatch<SetStateAction<string>>;
+  disabled?: boolean;
   label: string;
 }
 
 export const InputGender = ({
   label,
   setSelectedGenderValue,
+  disabled,
   ...props
 }: InputDefaultProps) => {
   const { id } = props;
@@ -16,6 +18,7 @@ export const InputGender = ({
   const [genderSelected, setGenderSelected] = useState("Masculino");
 
   const handleChangeGender = (value: number) => {
+    if (disabled) return;
     setGender(value);
     switch (value) {
       case 0:

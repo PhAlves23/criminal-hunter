@@ -94,7 +94,7 @@ export const crime = [
   {
     id: 10,
     image: "https://placehold.co/100x100/png",
-    title: "Terroismo",
+    title: "Terrorismo",
   },
   {
     id: 11,

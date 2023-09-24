@@ -61,6 +61,7 @@ export default function Profile() {
             name="name"
             value={name}
             placeholder="Digite o name"
+            disabled
             onChange={(e) => setName(e.target.value)}
           />
           <InputDefault
@@ -71,6 +72,7 @@ export default function Profile() {
             name="localization"
             value={localization}
             placeholder="Digite a sua localização"
+            disabled
             onChange={(e) => setLocalization(e.target.value)}
           />
           <InputDefault
@@ -81,12 +83,14 @@ export default function Profile() {
             name="date"
             value={date}
             placeholder="DD/MM/AAAA"
+            disabled
             onChange={(e) => setDate(e.target.value)}
           />
 
           <InputGender
             label="Sexo"
             setSelectedGenderValue={setSelectedGenderValue}
+            disabled
           />
 
           <InputDefault
@@ -96,6 +100,7 @@ export default function Profile() {
             name="crime"
             value={crime}
             placeholder="Crime"
+            disabled
             onChange={(e) => setCrime(e.target.value)}
           />
         </div>
