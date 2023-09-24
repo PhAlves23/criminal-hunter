@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import { FiChevronLeft, FiEdit, FiMail, FiMap } from "react-icons/fi";
+import { FiChevronLeft, FiMap } from "react-icons/fi";
 import { Button } from "@/components/button";
 import { InputDefault } from "@/components/inputs/input_default";
 import { InputGender } from "@/components/inputs/input_gender";
@@ -16,6 +16,9 @@ export default function Profile() {
   const [localization, setLocalization] = useState("Gothan City, EUA");
   const [date, setDate] = useState("1989-05-13");
   const [crime, setCrime] = useState("Assassinato, terrorismo e sequestro.");
+  const [selectedGenderValue, setSelectedGenderValue] = useState("Masculino");
+
+  console.log("selectedGenderValueeee", selectedGenderValue);
 
   return (
     <div>
@@ -50,7 +53,7 @@ export default function Profile() {
           </div>
         </div>
 
-        <div className="h-[calc(100vh-495px)] overflow-y-auto hidden-scrollbar p-1 mb-5">
+        <div className="h-[calc(100dvh-495px)] overflow-y-auto hidden-scrollbar p-1 mb-5">
           <InputDefault
             label="name"
             type="text"
@@ -83,12 +86,7 @@ export default function Profile() {
 
           <InputGender
             label="Sexo"
-            type="email"
-            id="email"
-            name="email"
-            value={crime}
-            placeholder="Digite o seu e-mail"
-            onChange={(e) => setCrime(e.target.value)}
+            setSelectedGenderValue={setSelectedGenderValue}
           />
 
           <InputDefault

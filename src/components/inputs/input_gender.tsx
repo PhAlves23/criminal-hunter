@@ -1,12 +1,16 @@
-import { useState } from "react";
-import { IconType } from "react-icons";
+import { Dispatch, SetStateAction, useEffect, useState } from "react";
 
 interface InputDefaultProps
   extends React.InputHTMLAttributes<HTMLInputElement> {
+  setSelectedGenderValue?: Dispatch<SetStateAction<string>>;
   label: string;
 }
 
-export const InputGender = ({ label, ...props }: InputDefaultProps) => {
+export const InputGender = ({
+  label,
+  setSelectedGenderValue,
+  ...props
+}: InputDefaultProps) => {
   const { id } = props;
   const [gender, setGender] = useState(0);
   const [genderSelected, setGenderSelected] = useState("Masculino");
@@ -16,15 +20,22 @@ export const InputGender = ({ label, ...props }: InputDefaultProps) => {
     switch (value) {
       case 0:
         setGenderSelected("Masculino");
+        if (setSelectedGenderValue) setSelectedGenderValue("Masculino");
         break;
       case 1:
         setGenderSelected("Feminino");
+        if (setSelectedGenderValue) setSelectedGenderValue("Feminino");
         break;
       default:
         setGenderSelected("Masculino");
+        if (setSelectedGenderValue) setSelectedGenderValue("Masculino");
         break;
     }
   };
+
+  // useEffect(() => {
+  //   console.log("genderSelected", genderSelected);
+  // }, [genderSelected]);
 
   return (
     <div className="mb-5">

@@ -25,7 +25,7 @@ export default function ChangePassword() {
           alt="Logo Criminal Hunter"
         />
       </header>
-      <main className="w-full h-[calc(100vh-81px)] px-5 pt-10 pb-5 flex flex-col justify-between">
+      <main className="w-full h-[calc(100dvh-81px)] px-5 pt-10 pb-5 flex flex-col justify-between">
         <div>
           <InputDefault
             label="Senha atual"

@@ -148,7 +148,7 @@ export default function Search() {
           />
         </div>
 
-        <div className="h-[calc(100vh-175px)] overflow-y-auto hidden-scrollbar">
+        <div className="h-[calc(100dvh-175px)] overflow-y-auto hidden-scrollbar">
           {Array.isArray(criminals) &&
             criminals.length > 0 &&
             criminals.map(

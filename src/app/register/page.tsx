@@ -18,6 +18,8 @@ export default function Register() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [selectedGenderValue, setSelectedGenderValue] = useState("Masculino");
+
   return (
     <div>
       <header className="px-5 py-3 flex justify-between items-center">
@@ -40,7 +42,7 @@ export default function Register() {
           Interpol!
         </p>
 
-        <div className="h-[calc(100vh-330px)] overflow-y-auto hidden-scrollbar p-1 mb-5">
+        <div className="h-[calc(100dvh-330px)] overflow-y-auto hidden-scrollbar p-1 mb-5">
           <InputDefault
             label="Nome"
             type="text"
@@ -73,12 +75,7 @@ export default function Register() {
 
           <InputGender
             label="Sexo"
-            type="email"
-            id="email"
-            name="email"
-            value={email}
-            placeholder="Digite o seu e-mail"
-            onChange={(e) => setEmail(e.target.value)}
+            setSelectedGenderValue={setSelectedGenderValue}
           />
 
           <InputDefault

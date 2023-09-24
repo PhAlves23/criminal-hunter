@@ -16,6 +16,7 @@ export default function EditProfile() {
   const [localization, setLocalization] = useState("São Paulo, BR");
   const [date, setDate] = useState("2003-02-23");
   const [email, setEmail] = useState("ph23.alves@gmail.com");
+  const [selectedGenderValue, setSelectedGenderValue] = useState("Masculino");
 
   return (
     <>
@@ -44,7 +45,7 @@ export default function EditProfile() {
           </div>
         </div>
 
-        <div className="h-[calc(100vh-525px)] overflow-y-auto hidden-scrollbar p-1 mb-5">
+        <div className="h-[calc(100dvh-525px)] overflow-y-auto hidden-scrollbar p-1 mb-5">
           <InputDefault
             label="Nome"
             type="text"
@@ -77,12 +78,7 @@ export default function EditProfile() {
 
           <InputGender
             label="Sexo"
-            type="email"
-            id="email"
-            name="email"
-            value={email}
-            placeholder="Digite o seu e-mail"
-            onChange={(e) => setEmail(e.target.value)}
+            setSelectedGenderValue={setSelectedGenderValue}
           />
 
           <InputDefault
