@@ -10,7 +10,7 @@ export default function Recover() {
   const router = useRouter();
   const [email, setEmail] = useState("");
   return (
-    <>
+    <div className="container-desktop">
       <header className="px-5 py-3 flex justify-between items-center">
         <div className="flex items-center gap-2" onClick={() => router.back()}>
           <FiChevronLeft size={32} className="text-secondary" />
@@ -37,6 +37,6 @@ export default function Recover() {
         </div>
         <Button text="Recuperar" variant="primary" />
       </main>
-    </>
+    </div>
   );
 }

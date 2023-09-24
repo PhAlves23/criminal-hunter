@@ -10,7 +10,7 @@ export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   return (
-    <>
+    <div className="container-desktop">
       <header className="px-5 py-3 flex justify-between items-center">
         <Image
           src="/logo_name.svg"
@@ -65,6 +65,6 @@ export default function Login() {
           </Link>
         </div>
       </main>
-    </>
+    </div>
   );
 }

@@ -31,7 +31,7 @@ export default function Entry() {
       </motion.div>
     </div>
   ) : (
-    <div className="w-screen h-screen bg-[url('/banner.png')] bg-no-repeat bg-auto bg-right-top lg:bg-cover lg:bg-center">
+    <div className="w-screen h-screen bg-[url('/banner.png')] bg-no-repeat bg-auto bg-right-top lg:bg-auto lg:bg-top">
       <div className="px-5 py-3">
         <Image
           src="/logo.svg"
@@ -46,7 +46,7 @@ export default function Entry() {
           <p className="text-xl">Vamos punir um criminoso hoje!!</p>
         </div>
 
-        <div className="flex flex-col gap-3 mb-5">
+        <div className="flex flex-col gap-3 mb-5 lg:flex-row lg:justify-center lg:items-center">
           {Array.isArray(buttonLinksItems) &&
             buttonLinksItems.length > 0 &&
             buttonLinksItems.map(({ id, icon, text, path, variant }) => {

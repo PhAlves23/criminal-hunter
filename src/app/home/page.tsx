@@ -5,7 +5,7 @@ import Link from "next/link";
 import { FiSearch } from "react-icons/fi";
 export default function Home() {
   return (
-    <>
+    <div className="container-desktop">
       <header className="px-5 py-3 flex justify-between items-center">
         <Image
           src="/logo_name.svg"
@@ -39,7 +39,7 @@ export default function Home() {
       <main className="px-5 py-3 text-xl">
         <h2 className="mb-4">Qual foi o tipo de crime cometido?</h2>
 
-        <div className="grid grid-cols-3 gap-3">
+        <div className="grid grid-cols-3 md:grid-cols-6 lg:grid-cols-8 gap-3">
           {Array.isArray(crime) &&
             crime.length > 0 &&
             crime.map(({ id, title, image }) => {
@@ -47,6 +47,6 @@ export default function Home() {
             })}
         </div>
       </main>
-    </>
+    </div>
   );
 }

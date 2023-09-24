@@ -21,6 +21,10 @@ body {
   font-family: var(--font-anton);
 }
 
+.container-desktop {
+  @apply max-w-7xl my-0 mx-auto;
+}
+
 .hidden-scrollbar::-webkit-scrollbar {
   @apply hidden;
 }

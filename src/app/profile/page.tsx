@@ -19,7 +19,7 @@ export default function EditProfile() {
   const [selectedGenderValue, setSelectedGenderValue] = useState("Masculino");
 
   return (
-    <>
+    <div className="container-desktop">
       <header className="px-5 py-3 flex justify-between items-center">
         <div className="flex items-center gap-2" onClick={() => router.back()}>
           <FiChevronLeft size={32} className="text-secondary" />
@@ -108,6 +108,6 @@ export default function EditProfile() {
           </Link>
         </div>
       </main>
-    </>
+    </div>
   );
 }

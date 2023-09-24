@@ -21,7 +21,7 @@ export default function Profile() {
   console.log("selectedGenderValueeee", selectedGenderValue);
 
   return (
-    <div>
+    <div className="container-desktop">
       <header className="px-5 py-3 flex justify-between items-center">
         <div className="flex items-center gap-2" onClick={() => router.back()}>
           <FiChevronLeft size={32} className="text-secondary" />
