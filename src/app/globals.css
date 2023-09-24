@@ -18,6 +18,7 @@
 
 body {
   @apply bg-background text-white;
+  font-family: var(--font-anton);
 }
 
 .hidden-scrollbar::-webkit-scrollbar {
@@ -38,6 +39,7 @@ body {
 
 input[type="date"] {
   position: relative;
+  appearance: none;
 }
 
 input[type="date"]::-webkit-calendar-picker-indicator,
@@ -62,4 +64,5 @@ input[type="datetime-local"]:after {
   height: 24px;
   filter: invert(1);
   pointer-events: none;
+  appearance: none;
 }

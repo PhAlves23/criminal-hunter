@@ -1,8 +1,12 @@
 import "./globals.css";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Anton } from "next/font/google";
 
 const inter = Inter({ subsets: ["latin"] });
+const anton = Anton({
+  subsets: ["latin"],
+  weight: "400",
+});
 
 export const metadata: Metadata = {
   title: "Criminal Hunter",
@@ -15,8 +19,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html lang="en" className={inter.className}>
+      <body>{children}</body>
     </html>
   );
 }
