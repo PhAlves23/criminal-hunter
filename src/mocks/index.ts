@@ -48,62 +48,62 @@ export const buttonLinksItems: ButtonLinksItemsProps[] = [
 export const crime = [
   {
     id: 1,
-    image: "https://placehold.co/100x100/png",
+    image: "/crime/homicidio.png",
     title: "Homicídio",
   },
   {
     id: 2,
-    image: "https://placehold.co/100x100/png",
+    image: "/crime/drogas.png",
     title: "Tráfico de drogas",
   },
   {
     id: 3,
-    image: "https://placehold.co/100x100/png",
+    image: "/crime/roubo.png",
     title: "Roubo",
   },
   {
     id: 4,
-    image: "https://placehold.co/100x100/png",
+    image: "/crime/fraude.png",
     title: "Fraude",
   },
   {
     id: 5,
-    image: "https://placehold.co/100x100/png",
+    image: "/crime/extorsao.png",
     title: "Extorsão",
   },
   {
     id: 6,
-    image: "https://placehold.co/100x100/png",
+    image: "/crime/sequestro.png",
     title: "Sequestro",
   },
   {
     id: 7,
-    image: "https://placehold.co/100x100/png",
+    image: "/crime/trafico-de-pessoas.png",
     title: "Tráfico de pessoas",
   },
   {
     id: 8,
-    image: "https://placehold.co/100x100/png",
+    image: "/crime/lavagem-de-dinheiro.png",
     title: "Lavagem de dinheiro",
   },
   {
     id: 9,
-    image: "https://placehold.co/100x100/png",
+    image: "/crime/cibernetico.png",
     title: "Crimes cibernéticos",
   },
   {
     id: 10,
-    image: "https://placehold.co/100x100/png",
+    image: "/crime/terrorismo.png",
     title: "Terrorismo",
   },
   {
     id: 11,
-    image: "https://placehold.co/100x100/png",
+    image: "/crime/contrabando.png",
     title: "Contrabando",
   },
   {
     id: 12,
-    image: "https://placehold.co/100x100/png",
+    image: "/crime/outro.png",
     title: "Outro",
   },
 ];
