@@ -17,11 +17,21 @@
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  @apply bg-background text-white;
+}
+
+.hidden-scrollbar::-webkit-scrollbar {
+  @apply hidden;
+}
+
+.label-style {
+  @apply mb-1 block;
+}
+
+.input-style {
+  @apply w-full h-14 px-5 bg-transparent border border-secondary rounded-lg text-white placeholder:text-neutral-300;
+}
+
+.textarea-style {
+  @apply w-full p-5 bg-neutral-700 rounded-lg text-white placeholder:text-neutral-300;
 }
