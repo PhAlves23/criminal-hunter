@@ -95,6 +95,7 @@ export default function EditProfile() {
             name="email"
             value={email}
             placeholder="Digite o seu e-mail"
+            disabled
             onChange={(e) => setEmail(e.target.value)}
           />
         </div>
