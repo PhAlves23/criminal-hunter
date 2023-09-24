@@ -6,12 +6,14 @@ import { motion } from "framer-motion";
 interface ButtonLinksProps {
   icon: IconType;
   children: React.ReactNode;
+  path: string;
   variant?: "facebook" | "apple" | "google" | "email";
 }
 
 export const ButtonLinks = ({
   icon: Icon,
   children,
+  path,
   variant,
 }: ButtonLinksProps) => {
   const variantStyle = {
@@ -25,7 +27,7 @@ export const ButtonLinks = ({
   return (
     <motion.button whileTap={{ scale: 0.95 }}>
       <Link
-        href=""
+        href={path ? path : ""}
         className={clsx(variantStyle.base, variant && variantStyle[variant])}
       >
         <Icon size={24} />

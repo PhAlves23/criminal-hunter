@@ -11,6 +11,7 @@ interface ButtonLinksItemsProps {
   icon: IconType;
   variant: "facebook" | "apple" | "google" | "email";
   text: string;
+  path: string;
 }
 
 export const buttonLinksItems: ButtonLinksItemsProps[] = [
@@ -19,24 +20,28 @@ export const buttonLinksItems: ButtonLinksItemsProps[] = [
     icon: AiFillFacebook,
     variant: "facebook",
     text: "Entrar com Facebook",
+    path: "/login",
   },
   {
     id: 2,
     icon: AiFillApple,
     variant: "apple",
     text: "Entrar com ID Apple",
+    path: "/login",
   },
   {
     id: 3,
     icon: AiFillGoogleCircle,
     variant: "google",
     text: "Entrar com Google",
+    path: "/login",
   },
   {
     id: 4,
     icon: AiOutlineMail,
     variant: "email",
     text: "Entrar com e-mail",
+    path: "/login",
   },
 ];
 

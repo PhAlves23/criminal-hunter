@@ -49,9 +49,9 @@ export default function Entry() {
         <div className="flex flex-col gap-3 mb-5">
           {Array.isArray(buttonLinksItems) &&
             buttonLinksItems.length > 0 &&
-            buttonLinksItems.map(({ id, icon, text, variant }) => {
+            buttonLinksItems.map(({ id, icon, text, path, variant }) => {
               return (
-                <ButtonLinks key={id} icon={icon} variant={variant}>
+                <ButtonLinks key={id} icon={icon} path={path} variant={variant}>
                   {text}
                 </ButtonLinks>
               );
