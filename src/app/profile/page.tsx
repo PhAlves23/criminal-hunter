@@ -8,7 +8,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { FaBirthdayCake } from "react-icons/fa";
-import { FiChevronLeft, FiMail, FiMap } from "react-icons/fi";
+import { FiChevronLeft, FiLock, FiMail, FiMap } from "react-icons/fi";
 
 export default function EditProfile() {
   const router = useRouter();
@@ -42,6 +42,12 @@ export default function EditProfile() {
               alt=""
               className="rounded-full"
             />
+            <Link
+              href="/change_password"
+              className="absolute right-2 bottom-0 bg-primary w-14 h-14 rounded-full flex justify-center items-center text-white"
+            >
+              <FiLock size={28} />
+            </Link>
           </div>
         </div>
 
