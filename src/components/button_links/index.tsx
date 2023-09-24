@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { IconType } from "react-icons";
 import { clsx } from "clsx";
+import { motion } from "framer-motion";
 
 interface ButtonLinksProps {
   icon: IconType;
@@ -22,12 +23,14 @@ export const ButtonLinks = ({
   };
 
   return (
-    <Link
-      href=""
-      className={clsx(variantStyle.base, variant && variantStyle[variant])}
-    >
-      <Icon size={24} />
-      <p>{children}</p>
-    </Link>
+    <motion.button whileTap={{ scale: 0.95 }}>
+      <Link
+        href=""
+        className={clsx(variantStyle.base, variant && variantStyle[variant])}
+      >
+        <Icon size={24} />
+        <p>{children}</p>
+      </Link>
+    </motion.button>
   );
 };

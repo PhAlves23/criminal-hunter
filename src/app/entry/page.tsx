@@ -4,9 +4,33 @@ import { ButtonLinks } from "@/components/button_links";
 import { buttonLinksItems } from "@/mocks";
 import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
+import { motion } from "framer-motion";
 
 export default function Entry() {
-  return (
+  const [splash, setSplash] = useState(true);
+
+  setTimeout(() => {
+    setSplash(false);
+  }, 3500);
+
+  return splash ? (
+    <div className="w-screen h-screen flex justify-center items-center bg-primary">
+      <motion.div
+        initial={{ y: -50, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.4 }}
+      >
+        <Image
+          src="/logo_splash.svg"
+          width={160}
+          height={230}
+          alt="Splash"
+          className="animate-pulse"
+        />
+      </motion.div>
+    </div>
+  ) : (
     <div className="w-screen h-screen bg-[url('/banner.png')] bg-no-repeat bg-auto bg-right-top lg:bg-cover lg:bg-center">
       <div className="px-5 py-3">
         <Image

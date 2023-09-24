@@ -25,7 +25,7 @@ export const Button = ({ variant = "default", text, icon, onClick }: Props) => {
         icon && variantStyle.hasIcon,
         variantStyle[variant]
       )}
-      whileTap={{ scale: 0.85 }}
+      whileTap={{ scale: 0.95 }}
       onClick={onClick}
     >
       {icon}
