@@ -16,9 +16,13 @@ export default function Profile() {
   const [localization, setLocalization] = useState("Gothan City, EUA");
   const [date, setDate] = useState("1989-05-13");
   const [crime, setCrime] = useState("Assassinato, terrorismo e sequestro.");
+  const [weight, setWeight] = useState("70kg");
+  const [height, setHeight] = useState("1,80m");
+  const [race, setRace] = useState("Caucasiano");
+  const [nacionality, setNacionality] = useState("Americano");
+  const [gender, setGender] = useState("Masculino");
+  const [origin, setOrigin] = useState("FBI - Most Wanted");
   const [selectedGenderValue, setSelectedGenderValue] = useState("Masculino");
-
-  console.log("selectedGenderValueeee", selectedGenderValue);
 
   return (
     <div className="container-desktop">
@@ -36,26 +40,23 @@ export default function Profile() {
       </header>
       <main className="px-5">
         <div className="flex justify-center items-center">
-          <div className="w-[250px] h-[250px]">
+          <div className="w-[250px] h-[250px] relative">
             <Image
               src="/coringa.webp"
               width={250}
               height={250}
               alt=""
-              className="rounded-full"
+              className="rounded-full border border-primary"
             />
-            {/* <Link
-              href="/profile/edit_profile"
-              className="absolute right-2 bottom-0 bg-primary w-14 h-14 rounded-full flex justify-center items-center text-white"
-            >
-              <FiEdit size={28} />
-            </Link> */}
+            <div className="absolute right-0 left-0 bottom-0 py-1 px-2 text-2xl font-bold rounded-full flex justify-center items-center text-primary bg-gray-300 uppercase">
+              Procurado
+            </div>
           </div>
         </div>
 
         <div className="h-[calc(100dvh-495px)] overflow-y-auto hidden-scrollbar p-1 mb-5">
           <InputDefault
-            label="name"
+            label="Nome"
             type="text"
             id="name"
             name="name"
@@ -87,12 +88,6 @@ export default function Profile() {
             onChange={(e) => setDate(e.target.value)}
           />
 
-          <InputGender
-            label="Sexo"
-            setSelectedGenderValue={setSelectedGenderValue}
-            disabled
-          />
-
           <InputDefault
             label="Crime"
             type="text"
@@ -102,6 +97,67 @@ export default function Profile() {
             placeholder="Crime"
             disabled
             onChange={(e) => setCrime(e.target.value)}
+          />
+
+          <div className="flex justify-between items-center gap-5">
+            <InputDefault
+              label="Peso"
+              type="text"
+              id="weight"
+              name="weight"
+              value={weight}
+              placeholder="Peso"
+              disabled
+              onChange={(e) => setWeight(e.target.value)}
+            />
+            <InputDefault
+              label="Altura"
+              type="text"
+              id="height"
+              name="height"
+              value={height}
+              placeholder="Altura"
+              disabled
+              onChange={(e) => setHeight(e.target.value)}
+            />
+          </div>
+          <InputGender
+            label="Sexo"
+            setSelectedGenderValue={setSelectedGenderValue}
+            disabled
+          />
+          <div className="flex justify-between items-center gap-5">
+            <InputDefault
+              label="Raça"
+              type="text"
+              id="race"
+              name="race"
+              value={race}
+              placeholder="Raça"
+              disabled
+              onChange={(e) => setRace(e.target.value)}
+            />
+
+            <InputDefault
+              label="Nacionalidade"
+              type="text"
+              id="nacionality"
+              name="nacionality"
+              value={nacionality}
+              placeholder="Nacionalidade"
+              disabled
+              onChange={(e) => setNacionality(e.target.value)}
+            />
+          </div>
+          <InputDefault
+            label="Origem"
+            type="text"
+            id="origin"
+            name="origin"
+            value={origin}
+            placeholder="origin"
+            disabled
+            onChange={(e) => setOrigin(e.target.value)}
           />
         </div>
 
