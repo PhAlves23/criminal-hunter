@@ -14,30 +14,35 @@ export default function Search() {
   const [page, setPage] = useState(1);
   const [isLoading, setIsLoading] = useState(true);
   const [criminals, setCriminals] = useState<Criminal[]>([]);
+  const [searchTimeout, setSearchTimeout] = useState<number | null>(null);
   const ref = useRef<HTMLDivElement | null>(null);
   const apiUrl = "https://criminalhunter-production.up.railway.app/api/wanteds";
 
   const getCriminals = async () => {
     if (page === 1) {
       const res = await axios.get(apiUrl);
-      setCriminals(res.data);
-      if (res.data.length > 0) {
-        setIsLoading(false);
-      }
+      const allCriminals = res.data;
+      const filteredCriminals = allCriminals.filter((criminal: Criminal) => {
+        return criminal.nome.toLowerCase().includes(search.toLowerCase());
+      });
+      setCriminals(filteredCriminals);
+      setIsLoading(false);
     }
   };
 
   useEffect(() => {
     getCriminals();
     //eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [search]);
 
   const loadMoreCriminals = async () => {
     if (isLoading) return;
     const nextPage = page + 1;
     setIsLoading(true);
 
-    const newCriminals = await axios.get(`${apiUrl}?page=${nextPage}`);
+    const newCriminals = await axios.get(
+      `${apiUrl}?page=${nextPage}&search=${search}`
+    );
 
     if (newCriminals.data.length > 0) {
       setCriminals((prevCriminals) => [...prevCriminals, ...newCriminals.data]);
@@ -46,6 +51,27 @@ export default function Search() {
     setPage(nextPage);
     setIsLoading(false);
   };
+
+  useEffect(() => {
+    if (searchTimeout) {
+      clearTimeout(searchTimeout); // Limpa o temporizador anterior se houver
+    }
+
+    // Configura um novo temporizador que dispara após 2 segundos de inatividade
+    const timer: any = setTimeout(() => {
+      setPage(1); // Redefine a página para 1 após 2 segundos de inatividade
+      setIsLoading(true); // Ativa o indicador de carregamento
+      getCriminals(); // Faz a solicitação após o atraso
+    }, 2000); // Atraso de 2 segundos
+
+    setSearchTimeout(timer); // Armazena o temporizador no estado
+
+    return () => {
+      if (searchTimeout) {
+        clearTimeout(searchTimeout);
+      }
+    };
+  }, [search]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -70,7 +96,7 @@ export default function Search() {
     };
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isLoading]);
+  }, [isLoading, search]);
 
   return (
     <div className="h-screen container-desktop overflow-y-hidden">
@@ -92,7 +118,11 @@ export default function Search() {
             value={search}
             placeholder="Pesquisar..."
             className="w-full border rounded-full bg-transparent px-4 py-2"
-            onChange={(e) => setSearch(e.target.value)}
+            onChange={(e) => {
+              setSearch(e.target.value);
+              setPage(1);
+              setCriminals([]);
+            }}
           />
           <FiSearch
             size={24}
@@ -150,6 +180,11 @@ export default function Search() {
                 );
               }
             )}
+          {criminals.length === 0 && (
+            <p className="h-full text-lg flex justify-center items-center">
+              Nenhum criminoso encontrado...
+            </p>
+          )}
         </div>
       </main>
     </div>
