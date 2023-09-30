@@ -2,6 +2,7 @@ import { Dispatch, SetStateAction, useEffect, useState } from "react";
 
 interface InputDefaultProps
   extends React.InputHTMLAttributes<HTMLInputElement> {
+  selectedGenderValue?: string;
   setSelectedGenderValue?: Dispatch<SetStateAction<string>>;
   disabled?: boolean;
   label: string;
@@ -9,36 +10,31 @@ interface InputDefaultProps
 
 export const InputGender = ({
   label,
+  selectedGenderValue,
   setSelectedGenderValue,
   disabled,
   ...props
 }: InputDefaultProps) => {
   const { id } = props;
-  const [gender, setGender] = useState(0);
-  const [genderSelected, setGenderSelected] = useState("Masculino");
+  const [gender, setGender] = useState("");
 
   const handleChangeGender = (value: number) => {
     if (disabled) return;
-    setGender(value);
+    if (selectedGenderValue) {
+      setGender(selectedGenderValue);
+    }
     switch (value) {
       case 0:
-        setGenderSelected("Masculino");
-        if (setSelectedGenderValue) setSelectedGenderValue("Masculino");
+        if (setSelectedGenderValue) setSelectedGenderValue("Male");
         break;
       case 1:
-        setGenderSelected("Feminino");
-        if (setSelectedGenderValue) setSelectedGenderValue("Feminino");
+        if (setSelectedGenderValue) setSelectedGenderValue("Female");
         break;
       default:
-        setGenderSelected("Masculino");
-        if (setSelectedGenderValue) setSelectedGenderValue("Masculino");
+        if (setSelectedGenderValue) setSelectedGenderValue("Male");
         break;
     }
   };
-
-  // useEffect(() => {
-  //   console.log("genderSelected", genderSelected);
-  // }, [genderSelected]);
 
   return (
     <div className="mb-5">
@@ -46,22 +42,32 @@ export const InputGender = ({
         {label}
       </label>
       <div className="input-style flex items-center justify-between">
-        <p>Selecione</p>
+        {selectedGenderValue !== "null" && <p>Selecione</p>}
         <div>
-          <button
-            type="button"
-            className={`py-2 px-3 rounded-full ${gender === 0 && "bg-primary"}`}
-            onClick={() => handleChangeGender(0)}
-          >
-            Masculino
-          </button>
-          <button
-            type="button"
-            className={`py-2 px-3 rounded-full ${gender === 1 && "bg-primary"}`}
-            onClick={() => handleChangeGender(1)}
-          >
-            Feminino
-          </button>
+          {selectedGenderValue === "" || selectedGenderValue === "null" ? (
+            <button>não informado</button>
+          ) : (
+            <>
+              <button
+                type="button"
+                className={`py-2 px-3 rounded-full ${
+                  selectedGenderValue === "Male" && "bg-primary"
+                }`}
+                onClick={() => handleChangeGender(0)}
+              >
+                Masculino
+              </button>
+              <button
+                type="button"
+                className={`py-2 px-3 rounded-full ${
+                  selectedGenderValue === "Female" && "bg-primary"
+                }`}
+                onClick={() => handleChangeGender(1)}
+              >
+                Feminino
+              </button>
+            </>
+          )}
         </div>
       </div>
     </div>

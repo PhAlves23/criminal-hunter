@@ -16,7 +16,7 @@ export default function EditProfile() {
   const [localization, setLocalization] = useState("São Paulo, BR");
   const [date, setDate] = useState("2003-02-23");
   const [email, setEmail] = useState("ph23.alves@gmail.com");
-  const [selectedGenderValue, setSelectedGenderValue] = useState("Masculino");
+  const [selectedGenderValue, setSelectedGenderValue] = useState("Male");
 
   return (
     <div className="container-desktop">
@@ -84,6 +84,7 @@ export default function EditProfile() {
 
           <InputGender
             label="Sexo"
+            selectedGenderValue={selectedGenderValue}
             setSelectedGenderValue={setSelectedGenderValue}
           />
 
