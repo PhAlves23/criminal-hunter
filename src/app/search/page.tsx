@@ -52,26 +52,26 @@ export default function Search() {
     setIsLoading(false);
   };
 
-  useEffect(() => {
-    if (searchTimeout) {
-      clearTimeout(searchTimeout); // Limpa o temporizador anterior se houver
-    }
+  // useEffect(() => {
+  //   if (searchTimeout) {
+  //     clearTimeout(searchTimeout); // Limpa o temporizador anterior se houver
+  //   }
 
-    // Configura um novo temporizador que dispara após 2 segundos de inatividade
-    const timer: any = setTimeout(() => {
-      setPage(1); // Redefine a página para 1 após 2 segundos de inatividade
-      setIsLoading(true); // Ativa o indicador de carregamento
-      getCriminals(); // Faz a solicitação após o atraso
-    }, 2000); // Atraso de 2 segundos
+  //   // Configura um novo temporizador que dispara após 2 segundos de inatividade
+  //   const timer: any = setTimeout(() => {
+  //     setPage(1); // Redefine a página para 1 após 2 segundos de inatividade
+  //     setIsLoading(true); // Ativa o indicador de carregamento
+  //     getCriminals(); // Faz a solicitação após o atraso
+  //   }, 2000); // Atraso de 2 segundos
 
-    setSearchTimeout(timer); // Armazena o temporizador no estado
+  //   setSearchTimeout(timer); // Armazena o temporizador no estado
 
-    return () => {
-      if (searchTimeout) {
-        clearTimeout(searchTimeout);
-      }
-    };
-  }, [search]);
+  //   return () => {
+  //     if (searchTimeout) {
+  //       clearTimeout(searchTimeout);
+  //     }
+  //   };
+  // }, [search]);
 
   useEffect(() => {
     const handleScroll = () => {
