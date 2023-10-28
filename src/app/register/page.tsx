@@ -75,6 +75,7 @@ export default function Register() {
 
           <InputGender
             label="Sexo"
+            selectedGenderValue={selectedGenderValue}
             setSelectedGenderValue={setSelectedGenderValue}
           />
 

@@ -1,3 +1,4 @@
+import ToastProvider from "@/components/toast_provider";
 import "./globals.css";
 import type { Metadata } from "next";
 import { Inter, Anton } from "next/font/google";
@@ -20,7 +21,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={inter.className}>
-      <body>{children}</body>
+      <body>
+        <ToastProvider>{children}</ToastProvider>
+      </body>
     </html>
   );
 }

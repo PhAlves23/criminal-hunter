@@ -9,6 +9,7 @@ import { InputDefault } from "@/components/inputs/input_default";
 import { InputGender } from "@/components/inputs/input_gender";
 import { useEffect, useState } from "react";
 import { FaBirthdayCake } from "react-icons/fa";
+import { toast } from "react-toastify";
 
 export default function Profile(query: any) {
   const router = useRouter();
@@ -72,9 +73,21 @@ export default function Profile(query: any) {
     ?.replace(/\[|\]/g, "")
     ?.replace(/"/g, "");
 
-  console.log("sexo", sexo);
-  console.log("gender", gender);
-  console.log("query", query.searchParams);
+  const handleLocalization = () => {
+    toast.success("Sua denúncia foi enviada com sucesso!", {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+      style: {
+        background: "#020a10",
+      },
+    });
+  };
 
   return (
     <div className="container-desktop">
@@ -192,32 +205,35 @@ export default function Profile(query: any) {
             setSelectedGenderValue={setSelectedGenderValue}
             disabled
           />
-          <div className="flex justify-between items-center gap-5">
-            <InputDefault
-              label="Raça"
-              type="text"
-              id="race"
-              name="race"
-              value={race === "" || race === "null" ? "não informado" : race}
-              placeholder="Raça"
-              disabled
-              onChange={(e) => setRace(e.target.value)}
-            />
-
-            <InputDefault
-              label="Nacionalidade"
-              type="text"
-              id="nacionality"
-              name="nacionality"
-              value={
-                nacionality === "" || nacionality === "null"
-                  ? "não informado"
-                  : nacionality
-              }
-              placeholder="Nacionalidade"
-              disabled
-              onChange={(e) => setNacionality(e.target.value)}
-            />
+          <div className="w-full flex justify-between items-center gap-5">
+            <div className="w-full">
+              <InputDefault
+                label="Raça"
+                type="text"
+                id="race"
+                name="race"
+                value={race === "" || race === "null" ? "não informado" : race}
+                placeholder="Raça"
+                disabled
+                onChange={(e) => setRace(e.target.value)}
+              />
+            </div>
+            <div className="w-full">
+              <InputDefault
+                label="Nacionalidade"
+                type="text"
+                id="nacionality"
+                name="nacionality"
+                value={
+                  nacionality === "" || nacionality === "null"
+                    ? "não informado"
+                    : nacionality
+                }
+                placeholder="Nacionalidade"
+                disabled
+                onChange={(e) => setNacionality(e.target.value)}
+              />
+            </div>
           </div>
           {origin && (
             <InputDefault
@@ -236,7 +252,11 @@ export default function Profile(query: any) {
         </div>
 
         <div className="flex flex-col gap-3">
-          <Button text="Informar localização" variant="primary" />
+          <Button
+            text="Informar localização"
+            variant="primary"
+            onClick={handleLocalization}
+          />
           <Link href="/home">
             <Button text="Cancelar" variant="secondary" />
           </Link>
